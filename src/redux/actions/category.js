@@ -85,7 +85,28 @@ export const fetchCategoryInfo = () => {
   // };
   return (dispatch) => {
     const categoryInfo = [
-      { title: 'cake', amount: '2' }
+      {
+        id: '1',
+        name: 'cake',
+        inventory_number: '51566',
+        saving_date: '1/25/2024',
+        storage_location: 'Pantry',
+        expiration_date: '1/27/2024',
+        kcal: '100',
+        amount: '5.0',
+        information: 'abc'
+      },
+      {
+        id: '1',
+        name: 'cake',
+        inventory_number: '51566',
+        saving_date: '1/25/2024',
+        storage_location: 'Pantry',
+        expiration_date: '1/27/2024',
+        kcal: '100',
+        amount: '5.0',
+        information: 'abc'
+      }
     ];
 
     dispatch(fetchCategoryInfoSuccess(categoryInfo));
