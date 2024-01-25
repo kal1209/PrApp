@@ -1,28 +1,40 @@
-import React, { Component } from "react";
-import { Text, View, ScrollView } from "react-native";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { View, ScrollView } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+
+import CategoryBox from '../../components/CategoryBox';
+
+import { fetchCategories, fetchCategoryInfo } from "../../redux/actions/category";
 import styles from "./styles";
 
-class HomeScreen extends Component {
-  constructor(props) {
-    super(props);
+const HomeScreen = ({ navigation }) => {
+
+  const dispatch = useDispatch();
+  const { categories, loading, error } = useSelector(state => state.category);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  componentDidMount = async () => { };
-
-  render() {
-    return (
-      <ScrollView style={{ backgroundColor: "#FFF" }}>
-        <View style={styles.Wrapper}>
-          <Text>Your Home Screen2</Text>
-        </View>
-      </ScrollView>
-    );
+  if (error) {
+    return <p>{error}</p>;
   }
-}
 
-const mapStateToProps = (state) => {
-  return {};
+  const onClick = (categoryId) => {
+    // dispatch(fetchCategoryInfo(categoryId));
+  }
+
+  return (
+    <ScrollView style={styles.homeContainer}>
+      <View style={styles.mainContainer}>
+        {categories.map(category => (
+          <CategoryBox key={category.id} category={category} onClick={onClick} />
+        ))}
+      </View>
+    </ScrollView>
+  );
 };
 
-export default connect(mapStateToProps, null)(HomeScreen);
+export default HomeScreen;
