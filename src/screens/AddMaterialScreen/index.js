@@ -1,12 +1,23 @@
-import React, { useEffect } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, View, ScrollView, } from "react-native";
+// import DatePicker from "react-native-datepicker";
 import { useDispatch } from "react-redux";
 
 import OutlineInput from "../../components/OutlineInput";
 import RadiusCornerButton from "../../components/RadiusCornerButton";
+import DatePicker from "../../components/DatePicker";
 import styles from "./styles";
 
 const AddMaterialScreen = ({ navigation }) => {
+
+  const [state, setState] = useState({ date: new Date(), name: '' });
+
+  const handleDateChange = (newDate) => {
+    setState(prevState => ({ ...prevState, date: newDate }));
+  };
+  const handleNameChange = (name) => {
+    setState(prevState => ({ ...prevState, date: name }));
+  };
 
   const dispatch = useDispatch();
 
@@ -33,20 +44,20 @@ const AddMaterialScreen = ({ navigation }) => {
       <View style={styles.app}>
         <Row>
           <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'name'} defaultValue={state.name} onChange={handleNameChange} />
           </Col>
         </Row>
         <Row>
           <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'Inventory Number'} />
           </Col>
           <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'Date Entered'} />
           </Col>
         </Row>
         <Row>
           <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'Storage location'} />
           </Col>
         </Row>
         <Row>
@@ -56,28 +67,32 @@ const AddMaterialScreen = ({ navigation }) => {
         </Row>
         <Row>
           <Col numRows={1}>
-
+            <DatePicker
+            // date={state.date}
+            // mode="date"
+            // onDateChange={(newDate) => handleDateChange(newDate)}
+            />
           </Col>
         </Row>
         <Row>
           <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'Pounds'} />
           </Col>
           <Col numRows={1}>
-            <OutlineInput />
-          </Col>
-        </Row>
-        <Row>
-          <Col numRows={1}>
-            <OutlineInput />
+            <OutlineInput label={'Ounces'} />
           </Col>
         </Row>
         <Row>
           <Col numRows={1}>
-            <RadiusCornerButton onClick={onCancelPress} />
+            <OutlineInput label={'Additional Notes'} />
           </Col>
+        </Row>
+        <Row>
           <Col numRows={1}>
-
+            <RadiusCornerButton title={'CANCEL'} type={'outline'} onClick={onCancelPress} />
+          </Col>
+          <Col numRows={2}>
+            <RadiusCornerButton title={'SAVE'} type={'primary'} onClick={onSavePress} />
           </Col>
         </Row>
       </View>

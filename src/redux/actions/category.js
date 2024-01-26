@@ -85,28 +85,30 @@ export const fetchCategoryInfo = () => {
   // };
   return (dispatch) => {
     const categoryInfo = [
-      {
-        id: '1',
-        name: 'cake',
-        inventory_number: '51566',
-        saving_date: '1/25/2024',
-        storage_location: 'Pantry',
-        expiration_date: '1/27/2024',
-        kcal: '100',
-        amount: '5.0',
-        information: 'abc'
-      },
-      {
-        id: '1',
-        name: 'cake',
-        inventory_number: '51566',
-        saving_date: '1/25/2024',
-        storage_location: 'Pantry',
-        expiration_date: '1/27/2024',
-        kcal: '100',
-        amount: '5.0',
-        information: 'abc'
-      }
+      // {
+      //   id: '1',
+      //   name: 'cake',
+      //   barcode: '',
+      //   inventory_number: '51566',
+      //   saving_date: '1/25/2024',
+      //   storage_location: 'Pantry',
+      //   expiration_date: '1/27/2024',
+      //   pounds: '4.0',
+      //   Ounces: 'kg',
+      //   information: 'abc'
+      // },
+      // {
+      //   id: '2',
+      //   name: 'cake',
+      //   barcode: '',
+      //   inventory_number: '51566',
+      //   saving_date: '1/25/2024',
+      //   storage_location: 'Pantry',
+      //   expiration_date: '1/27/2024',
+      //   pounds: '5.0',
+      //   Ounces: 'g',
+      //   information: 'abc'
+      // }
     ];
 
     dispatch(fetchCategoryInfoSuccess(categoryInfo));

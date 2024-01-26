@@ -8,7 +8,7 @@ const MaterialList = ({ material, onClick }) => {
     <TouchableWithoutFeedback onPress={() => onClick(material.id)}>
       <View style={styles.container}>
         <View style={styles.row}>
-          <Text style={styles.name}>{material.amount} kg - {material.name}</Text>
+          <Text style={styles.name}>{material.amount} {material.Ounces} - {material.name}</Text>
         </View>
         <View style={styles.row}>
           <View style={styles.column}>
@@ -17,7 +17,7 @@ const MaterialList = ({ material, onClick }) => {
           </View>
           <View style={styles.column}>
             <Text style={styles.expiraction_date}>{material.expiration_date}</Text>
-            <Text>{material.kcal} kcal/100g</Text>
+            {/* <Text>{material.kcal} kcal/100g</Text> */}
           </View>
         </View>
       </View>

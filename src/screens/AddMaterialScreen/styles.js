@@ -11,10 +11,12 @@ const styles = StyleSheet.create({
   "1col": {
     flex: 1,
     alignItems: 'center',
+    marginHorizontal: 10
   },
   "2col": {
     flex: 2,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginHorizontal: 10
   },
   smallTitle: {
     color: Colors.mainColor,

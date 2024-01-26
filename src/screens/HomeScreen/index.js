@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
   const { categories, loading, error } = useSelector(state => state.category);
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
+  }, [dispatch]);
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
   }
 
   const onClick = (categoryId) => {
-    // dispatch(fetchCategoryInfo(categoryId));
+    // dispatch(fetchCategoryInfo(categoryId));.
   }
 
   return (

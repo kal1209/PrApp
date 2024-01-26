@@ -2,20 +2,27 @@ import { StyleSheet, Platform } from "react-native";
 import Colors from '../../style/color';
 
 const styles = StyleSheet.create({
-  cont: {
-    alignSelf: 'center',
-    backgroundColor: Colors.mainColor,
-    zIndex: 1,
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    justifyContent: 'center',
+  button: {
+    width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    elevation: 3,
   },
-  image: {
-    tintColor: Colors.white,
-    height: 45,
-    width: 45,
+  primary: {
+    backgroundColor: Colors.mainColor,
+  },
+  outline: {
+    backgroundColor: Colors.grayText,
+  },
+  text: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   },
 });
 
